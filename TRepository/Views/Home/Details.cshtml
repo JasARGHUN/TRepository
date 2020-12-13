@@ -1,0 +1,28 @@
+﻿@model Item
+
+<br />
+<div class="container mt-5">
+    <div class="card">
+        <div class="card-header">
+            @Model.Name
+        </div>
+        <div class="card-body">
+            <blockquote class="blockquote mb-0">
+                <p>@Model.Description</p>
+            </blockquote>
+        </div>
+        <div class="text-center p-2 m-2">
+
+            <form asp-action="Delete" method="post">
+                <a asp-action="Index" style="font-size:1.5em;" class="btn btn-primary">Back</a>
+                <a asp-action="Edit" asp-route-id="@Model.Id" style="font-size:1.5em;" class="btn btn-warning">Edit</a>
+                <input type="hidden" name="id" value="@Model.Id" />
+                <button type="submit" class="btn btn-danger btn-sm" style="font-size:1.5em;" 
+                        onclick="return confirm('Delete: @Model.Name?')">
+                    Delete
+                </button>
+            </form>
+
+        </div>
+    </div>
+</div>

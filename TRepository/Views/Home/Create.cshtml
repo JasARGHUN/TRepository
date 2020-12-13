@@ -1,0 +1,38 @@
+﻿@model ItemCreateViewModel
+
+@{
+    ViewBag.Title = "Add item";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<br />
+<div class="card text-center mt-5 p-2">
+    <form asp-action="Create" enctype="multipart/form-data" method="post">
+
+        <div class="form-group">
+            <label asp-for="@Model.Name"></label>
+            <input asp-for="@Model.Name" class="form-control" />
+            <div>
+                <span asp-validation-for="@Model.Name" class="text-danger"></span>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div>
+                <label asp-for="@Model.Description">Description (Only 200 characters)</label>
+            </div>
+            <div>
+                <textarea asp-for="@Model.Description" class="form-control" rows="8"></textarea>
+            </div>
+            <div>
+                <span asp-validation-for="@Model.Description" class="text-danger"></span>
+            </div>
+        </div>
+        <hr />
+
+        <div class="text-center">
+            <button type="submit" class="btn btn-outline-primary">Add</button>
+            <a asp-action="Index" class="btn btn-outline-warning">Cancel</a>
+        </div>
+    </form>
+</div>
